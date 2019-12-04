@@ -2,10 +2,18 @@
 
     Public Slide As SCON_Controller
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Sub New()
         Slide = New SCON_Controller("COM7", 38400)
         Slide.Active = True
         Slide.Connect()
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
         tmrUpdateTextboxes.Enabled = True
     End Sub
@@ -51,6 +59,9 @@
         tbCurPos.Text = st.PNOW
         tbCurSpeed.Text = st.VNOW
         tbCurAmps.Text = st.CNOW
+        tbAlrm.Text = st.ALMC
+        lblSftySpeedOn.Visible = st.SFTY
+        lblBrkRlsOn.Visible = st.BKRL
     End Sub
 
     Private Sub btnAbsoluteMove_Click(sender As Object, e As EventArgs) Handles btnAbsoluteMove.Click
@@ -58,6 +69,43 @@
     End Sub
 
     Private Sub btnRelativeMove_Click(sender As Object, e As EventArgs) Handles btnRelativeMove.Click
+        Slide.RelativeMove(tbRelativeMove.Text)
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Slide.StopMotion()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Slide.PauseMotion(True)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Slide.PauseMotion(False)
+    End Sub
+
+    Private Sub chkSafetySpeed_CheckedChanged(sender As Object, e As EventArgs) Handles chkSafetySpeed.CheckedChanged
+        Slide.SafetySpeed(chkSafetySpeed.Checked)
+    End Sub
+
+    Private Sub chkBrkRls_CheckedChanged(sender As Object, e As EventArgs) Handles chkBrkRls.CheckedChanged
+        Slide.BreakRelease(chkBrkRls.Checked)
+    End Sub
+
+    Private Sub btnResetAlarm_Click(sender As Object, e As EventArgs) Handles btnResetAlarm.Click
+        Slide.AlarmReset()
+    End Sub
+
+    Private Sub tbSpdSpec_ValueChanged(sender As Object, e As EventArgs) Handles tbSpdSpec.ValueChanged
+
+        Slide.SetSpeed(tbSpdSpec.Value)
 
     End Sub
+
+    Private Sub tbAccelSpec_ValueChanged(sender As Object, e As EventArgs) Handles tbAccelSpec.ValueChanged
+
+        Slide.SetAccel(tbAccelSpec.Value)
+
+    End Sub
+
 End Class

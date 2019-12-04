@@ -39,13 +39,31 @@ Partial Class Form1
         Me.tmrUpdateTextboxes = New System.Windows.Forms.Timer(Me.components)
         Me.btnAbsoluteMove = New System.Windows.Forms.Button()
         Me.tbAbsoluteMove = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.btnRelativeMove = New System.Windows.Forms.Button()
+        Me.tbRelativeMove = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.chkSafetySpeed = New System.Windows.Forms.CheckBox()
+        Me.btnRelativeMove = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.chkBrkRls = New System.Windows.Forms.CheckBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.tbAlrm = New System.Windows.Forms.TextBox()
+        Me.btnResetAlarm = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblSftySpeedOn = New System.Windows.Forms.Label()
+        Me.lblBrkRlsOn = New System.Windows.Forms.Label()
+        Me.tbSpdSpec = New System.Windows.Forms.NumericUpDown()
+        Me.tbAccelSpec = New System.Windows.Forms.NumericUpDown()
+        CType(Me.tbSpdSpec, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbAccelSpec, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSON
@@ -113,7 +131,7 @@ Partial Class Form1
         '
         'tbCurPos
         '
-        Me.tbCurPos.Location = New System.Drawing.Point(109, 196)
+        Me.tbCurPos.Location = New System.Drawing.Point(107, 358)
         Me.tbCurPos.Name = "tbCurPos"
         Me.tbCurPos.ReadOnly = True
         Me.tbCurPos.Size = New System.Drawing.Size(48, 20)
@@ -122,7 +140,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 199)
+        Me.Label1.Location = New System.Drawing.Point(20, 361)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(81, 13)
         Me.Label1.TabIndex = 9
@@ -131,7 +149,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(26, 225)
+        Me.Label2.Location = New System.Drawing.Point(24, 387)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 13)
         Me.Label2.TabIndex = 11
@@ -139,7 +157,7 @@ Partial Class Form1
         '
         'tbCurSpeed
         '
-        Me.tbCurSpeed.Location = New System.Drawing.Point(109, 222)
+        Me.tbCurSpeed.Location = New System.Drawing.Point(107, 384)
         Me.tbCurSpeed.Name = "tbCurSpeed"
         Me.tbCurSpeed.ReadOnly = True
         Me.tbCurSpeed.Size = New System.Drawing.Size(48, 20)
@@ -148,7 +166,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(39, 251)
+        Me.Label3.Location = New System.Drawing.Point(37, 413)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 13)
         Me.Label3.TabIndex = 13
@@ -156,7 +174,7 @@ Partial Class Form1
         '
         'tbCurAmps
         '
-        Me.tbCurAmps.Location = New System.Drawing.Point(109, 248)
+        Me.tbCurAmps.Location = New System.Drawing.Point(107, 410)
         Me.tbCurAmps.Name = "tbCurAmps"
         Me.tbCurAmps.ReadOnly = True
         Me.tbCurAmps.Size = New System.Drawing.Size(48, 20)
@@ -183,22 +201,13 @@ Partial Class Form1
         Me.tbAbsoluteMove.TabIndex = 15
         Me.tbAbsoluteMove.Text = "100"
         '
-        'TextBox1
+        'tbRelativeMove
         '
-        Me.TextBox1.Location = New System.Drawing.Point(109, 170)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(48, 20)
-        Me.TextBox1.TabIndex = 17
-        Me.TextBox1.Text = "50"
-        '
-        'btnRelativeMove
-        '
-        Me.btnRelativeMove.Location = New System.Drawing.Point(28, 168)
-        Me.btnRelativeMove.Name = "btnRelativeMove"
-        Me.btnRelativeMove.Size = New System.Drawing.Size(75, 23)
-        Me.btnRelativeMove.TabIndex = 16
-        Me.btnRelativeMove.Text = "Shift:"
-        Me.btnRelativeMove.UseVisualStyleBackColor = True
+        Me.tbRelativeMove.Location = New System.Drawing.Point(109, 170)
+        Me.tbRelativeMove.Name = "tbRelativeMove"
+        Me.tbRelativeMove.Size = New System.Drawing.Size(48, 20)
+        Me.tbRelativeMove.TabIndex = 17
+        Me.tbRelativeMove.Text = "50"
         '
         'Label4
         '
@@ -221,7 +230,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(161, 199)
+        Me.Label6.Location = New System.Drawing.Point(159, 361)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(23, 13)
         Me.Label6.TabIndex = 20
@@ -230,7 +239,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(161, 225)
+        Me.Label7.Location = New System.Drawing.Point(159, 387)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(33, 13)
         Me.Label7.TabIndex = 21
@@ -239,23 +248,203 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(161, 251)
+        Me.Label8.Location = New System.Drawing.Point(159, 413)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(22, 13)
         Me.Label8.TabIndex = 22
         Me.Label8.Text = "mA"
         '
+        'chkSafetySpeed
+        '
+        Me.chkSafetySpeed.AutoSize = True
+        Me.chkSafetySpeed.Location = New System.Drawing.Point(52, 311)
+        Me.chkSafetySpeed.Name = "chkSafetySpeed"
+        Me.chkSafetySpeed.Size = New System.Drawing.Size(90, 17)
+        Me.chkSafetySpeed.TabIndex = 23
+        Me.chkSafetySpeed.Text = "Safety Speed"
+        Me.chkSafetySpeed.UseVisualStyleBackColor = True
+        '
+        'btnRelativeMove
+        '
+        Me.btnRelativeMove.Location = New System.Drawing.Point(28, 168)
+        Me.btnRelativeMove.Name = "btnRelativeMove"
+        Me.btnRelativeMove.Size = New System.Drawing.Size(75, 23)
+        Me.btnRelativeMove.TabIndex = 16
+        Me.btnRelativeMove.Text = "Shift:"
+        Me.btnRelativeMove.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(28, 197)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(154, 25)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "Stop"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(28, 228)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 25)
+        Me.Button2.TabIndex = 25
+        Me.Button2.Text = "Pause"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(107, 228)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 25)
+        Me.Button3.TabIndex = 26
+        Me.Button3.Text = "Resume"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'chkBrkRls
+        '
+        Me.chkBrkRls.AutoSize = True
+        Me.chkBrkRls.Location = New System.Drawing.Point(52, 334)
+        Me.chkBrkRls.Name = "chkBrkRls"
+        Me.chkBrkRls.Size = New System.Drawing.Size(96, 17)
+        Me.chkBrkRls.TabIndex = 27
+        Me.chkBrkRls.Text = "Break Release"
+        Me.chkBrkRls.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(37, 439)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(66, 13)
+        Me.Label9.TabIndex = 29
+        Me.Label9.Text = "Alarm Status"
+        '
+        'tbAlrm
+        '
+        Me.tbAlrm.Location = New System.Drawing.Point(107, 436)
+        Me.tbAlrm.Name = "tbAlrm"
+        Me.tbAlrm.ReadOnly = True
+        Me.tbAlrm.Size = New System.Drawing.Size(85, 20)
+        Me.tbAlrm.TabIndex = 28
+        '
+        'btnResetAlarm
+        '
+        Me.btnResetAlarm.Location = New System.Drawing.Point(28, 462)
+        Me.btnResetAlarm.Name = "btnResetAlarm"
+        Me.btnResetAlarm.Size = New System.Drawing.Size(154, 25)
+        Me.btnResetAlarm.TabIndex = 30
+        Me.btnResetAlarm.Text = "Reset Alarms"
+        Me.btnResetAlarm.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(35, 262)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(66, 13)
+        Me.Label10.TabIndex = 32
+        Me.Label10.Text = "Speed Spec"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(165, 262)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(33, 13)
+        Me.Label11.TabIndex = 33
+        Me.Label11.Text = "mm/s"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(169, 288)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(15, 13)
+        Me.Label12.TabIndex = 36
+        Me.Label12.Text = "G"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(35, 288)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(62, 13)
+        Me.Label13.TabIndex = 35
+        Me.Label13.Text = "Accel Spec"
+        '
+        'lblSftySpeedOn
+        '
+        Me.lblSftySpeedOn.AutoSize = True
+        Me.lblSftySpeedOn.BackColor = System.Drawing.Color.Lime
+        Me.lblSftySpeedOn.Location = New System.Drawing.Point(23, 312)
+        Me.lblSftySpeedOn.Name = "lblSftySpeedOn"
+        Me.lblSftySpeedOn.Size = New System.Drawing.Size(23, 13)
+        Me.lblSftySpeedOn.TabIndex = 37
+        Me.lblSftySpeedOn.Text = "ON"
+        Me.lblSftySpeedOn.Visible = False
+        '
+        'lblBrkRlsOn
+        '
+        Me.lblBrkRlsOn.AutoSize = True
+        Me.lblBrkRlsOn.BackColor = System.Drawing.Color.Lime
+        Me.lblBrkRlsOn.Location = New System.Drawing.Point(23, 334)
+        Me.lblBrkRlsOn.Name = "lblBrkRlsOn"
+        Me.lblBrkRlsOn.Size = New System.Drawing.Size(23, 13)
+        Me.lblBrkRlsOn.TabIndex = 38
+        Me.lblBrkRlsOn.Text = "ON"
+        Me.lblBrkRlsOn.Visible = False
+        '
+        'tbSpdSpec
+        '
+        Me.tbSpdSpec.DecimalPlaces = 2
+        Me.tbSpdSpec.Increment = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.tbSpdSpec.Location = New System.Drawing.Point(107, 260)
+        Me.tbSpdSpec.Maximum = New Decimal(New Integer() {350, 0, 0, 0})
+        Me.tbSpdSpec.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
+        Me.tbSpdSpec.Name = "tbSpdSpec"
+        Me.tbSpdSpec.Size = New System.Drawing.Size(56, 20)
+        Me.tbSpdSpec.TabIndex = 39
+        Me.tbSpdSpec.Value = New Decimal(New Integer() {100, 0, 0, 0})
+        '
+        'tbAccelSpec
+        '
+        Me.tbAccelSpec.DecimalPlaces = 2
+        Me.tbAccelSpec.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.tbAccelSpec.Location = New System.Drawing.Point(107, 285)
+        Me.tbAccelSpec.Maximum = New Decimal(New Integer() {99, 0, 0, 131072})
+        Me.tbAccelSpec.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
+        Me.tbAccelSpec.Name = "tbAccelSpec"
+        Me.tbAccelSpec.Size = New System.Drawing.Size(56, 20)
+        Me.tbAccelSpec.TabIndex = 40
+        Me.tbAccelSpec.Value = New Decimal(New Integer() {1, 0, 0, 65536})
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(214, 296)
+        Me.ClientSize = New System.Drawing.Size(214, 526)
+        Me.Controls.Add(Me.tbAccelSpec)
+        Me.Controls.Add(Me.tbSpdSpec)
+        Me.Controls.Add(Me.lblBrkRlsOn)
+        Me.Controls.Add(Me.lblSftySpeedOn)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.btnResetAlarm)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.tbAlrm)
+        Me.Controls.Add(Me.chkBrkRls)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.chkSafetySpeed)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.tbRelativeMove)
         Me.Controls.Add(Me.btnRelativeMove)
         Me.Controls.Add(Me.tbAbsoluteMove)
         Me.Controls.Add(Me.btnAbsoluteMove)
@@ -274,6 +463,8 @@ Partial Class Form1
         Me.Controls.Add(Me.btnSON)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.tbSpdSpec, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbAccelSpec, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,11 +485,27 @@ Partial Class Form1
     Friend WithEvents tmrUpdateTextboxes As Timer
     Friend WithEvents btnAbsoluteMove As Button
     Friend WithEvents tbAbsoluteMove As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents btnRelativeMove As Button
+    Friend WithEvents tbRelativeMove As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents chkSafetySpeed As CheckBox
+    Friend WithEvents btnRelativeMove As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents chkBrkRls As CheckBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents tbAlrm As TextBox
+    Friend WithEvents btnResetAlarm As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents lblSftySpeedOn As Label
+    Friend WithEvents lblBrkRlsOn As Label
+    Friend WithEvents tbSpdSpec As NumericUpDown
+    Friend WithEvents tbAccelSpec As NumericUpDown
 End Class

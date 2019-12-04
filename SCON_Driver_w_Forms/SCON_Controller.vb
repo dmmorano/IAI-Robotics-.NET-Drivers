@@ -479,6 +479,7 @@ Public Class SCON_Controller
 
     End Sub
 
+    '---------------------------Direct Axis Commands---------------------
     ''' <summary>
     ''' Set the servo power
     ''' </summary>
@@ -486,6 +487,14 @@ Public Class SCON_Controller
     Public Sub SetPower(_on As Boolean)
         writeSingleCoil(REG_CMD_SON, _on)
         'GetState()
+    End Sub
+
+    ''' <summary>
+    ''' Reset any current alarms present in the axis. If any alarm cause has not been removed, the same alarm will be generated again.
+    ''' </summary>
+    Public Sub AlarmReset()
+        writeSingleCoil(REG_CMD_ALRS, True)
+        writeSingleCoil(REG_CMD_ALRS, False)
     End Sub
 
     ''' <summary>
@@ -551,13 +560,86 @@ Public Class SCON_Controller
     End Sub
 
     ''' <summary>
-    ''' Perform an absolute move to a position in milimeters
+    ''' Perform an absolute move to a position
+    ''' Units: mm
     ''' </summary>
     ''' <param name="position">Position value (mm)</param>
     Public Sub AbsoluteMove(position As Double)
         Dim posInt = Math.Round(position, 2) * 100
         Dim regdata = deconstructLong(posInt)
         writeMultipleHoldingRegisters(REG_CMD_PCMD, regData)
+    End Sub
+
+    ''' <summary>
+    ''' Perform a move relative to the position in the axis 'State' object
+    ''' Units: mm
+    ''' </summary>
+    ''' <param name="distance">Distance relative to current state</param>
+    Public Sub RelativeMove(distance As Double)
+        Dim cmdPos = State.PNOW + distance
+        AbsoluteMove(cmdPos)
+    End Sub
+
+    ''' <summary>
+    ''' Specify the moving speed for the axis (when not in safety speed mode)
+    ''' Units: mm/sec
+    ''' </summary>
+    ''' <param name="speed"></param>
+    Public Sub SetSpeed(speed As Double)
+        Dim spdInt = Math.Round(speed, 2) * 100
+        Dim regdata = deconstructLong(spdInt)
+        writeMultipleHoldingRegisters(REG_CMD_VCMD, regdata)
+    End Sub
+
+    ''' <summary>
+    ''' Specify the acceleration/decceleration rate of the axis
+    ''' Units: G
+    ''' </summary>
+    ''' <param name="accel"></param>
+    Public Sub SetAccel(accel As Double)
+        Dim accelInt = Math.Round(accel, 2) * 100
+        'Dim regdata = deconstructLong(accelInt)
+        writeSingleHoldingRegister(REG_CMD_ACMD, accelInt)
+    End Sub
+
+    ''' <summary>
+    ''' Request that the slide decelerate to a stop.
+    ''' </summary>
+    Public Sub StopMotion()
+        writeSingleCoil(REG_CMD_STOP, True)
+        writeSingleCoil(REG_CMD_STOP, False)
+    End Sub
+
+    ''' <summary>
+    ''' Requests the slide to pause all movement.
+    ''' If the pause command is transmitted during movement, the actuator decelerates and stops. 
+    ''' If the status is set back to normal again, the actuator resumes moving for the remaining distance. 
+    ''' As long as the pause command is being transmitted, all motor movement is inhibited.  
+    ''' If the alarm reset command bit is set while the actuator is paused, the remaining travel will be cancelled.  
+    ''' If this bit is set during home return, the movement command will be held if the actuator has not yet reversed 
+    ''' after contacting the mechanical end. If the actuator has already reversed after contacting the mechanical end, 
+    ''' home return will be repeated from the beginning. 
+    ''' </summary>
+    ''' <param name="pause">True: Pause, False: Unpause</param>
+    Public Sub PauseMotion(pause As Boolean)
+        writeSingleCoil(REG_CMD_STP, pause)
+    End Sub
+
+    ''' <summary>
+    ''' Brake control is linked to servo ON/OFF. The brake can be forcefully released even when the servo is ON.
+    ''' </summary>
+    ''' <param name="release">True: Brake forced release, False: Normal</param>
+    Public Sub BreakRelease(release As Boolean)
+        writeSingleCoil(REG_CMD_BKRL, release)
+    End Sub
+
+    ''' <summary>
+    ''' This query enables/disables the speed specified by user parameter No. 35, “Safety speed.” 
+    ''' Enabling the safety speed in the MANU mode will limit the speeds of all movement commands. 
+    ''' </summary>
+    ''' <param name="enabled"></param>
+    Public Sub SafetySpeed(enabled As Boolean)
+        writeSingleCoil(REG_CMD_SFTY, enabled)
     End Sub
 
 #End Region
@@ -781,13 +863,13 @@ Public Class SCON_Controller
 
         Public PNOW As Double = 0           'Current Position Monitor (high Byte)
         'Public PNOW              'Current Position Monitor (low byte)
-        Public ALMC As Double = 0           'Present alarm code query
+        Public ALMC As Integer = 0           'Present alarm code query
         Public DIPM As Double = 0           'Input port query
         Public DOPM As Double = 0           'Ouput port monitor query
-        Public DSS1 As Double = 0           'Device status query 1
-        Public DSS2 As Double = 0           'Device status query 2
-        Public DSSE As Double = 0           'Expansion device status query
-        Public STAT As Double = 0           'System status query (high Byte)
+        Public DSS1 As Integer = 0           'Device status query 1
+        Public DSS2 As Integer = 0           'Device status query 2
+        Public DSSE As Integer = 0           'Expansion device status query
+        Public STAT As Integer = 0           'System status query (high Byte)
         'Public STAT              'System status query (low byte)
         Public VNOW As Double = 0           'Current speed monitor (high Byte)
         'Public VNOW              'Current speed monitor (low byte)
