@@ -1,0 +1,7 @@
+﻿[*.vb]
+
+# BC42301: Only one XML comment block is allowed per language element
+dotnet_diagnostic.BC42301.severity = none
+
+# BC42304: XML documentation parse error
+dotnet_diagnostic.BC42304.severity = silent
