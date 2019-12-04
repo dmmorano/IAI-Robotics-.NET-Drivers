@@ -1,9 +1,10 @@
-﻿Public Class Form1
+﻿Imports IAIDrivers
+Public Class Form1
 
-    Public Slide As SCON_Controller
+    Public Slide As SCONController
 
     Sub New()
-        Slide = New SCON_Controller("COM7", 38400)
+        Slide = New SCONController("COM7", 38400)
         Slide.Active = True
         Slide.Connect()
         ' This call is required by the designer.

@@ -2,7 +2,7 @@
 
 
 
-Public Class SCON_Controller
+Public Class SCONController
 #Region "Register Documentation"
 #Region "Data of Status/Command Registers"
 
@@ -567,7 +567,7 @@ Public Class SCON_Controller
     Public Sub AbsoluteMove(position As Double)
         Dim posInt = Math.Round(position, 2) * 100
         Dim regdata = deconstructLong(posInt)
-        writeMultipleHoldingRegisters(REG_CMD_PCMD, regData)
+        writeMultipleHoldingRegisters(REG_CMD_PCMD, regdata)
     End Sub
 
     ''' <summary>

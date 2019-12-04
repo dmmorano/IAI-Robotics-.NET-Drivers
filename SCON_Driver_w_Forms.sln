@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyModbus", "EasyModbusTCP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyModbusClientExample", "EasyModbusTCP.NET-master\EasyModbusClientExample\EasyModbusClientExample.csproj", "{9412077F-7DFF-45D0-AFF9-7D5303118EA7}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IAIDrivers", "IAIAxisDriver\IAIDrivers.vbproj", "{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,14 @@ Global
 		{9412077F-7DFF-45D0-AFF9-7D5303118EA7}.DebugCommercial2|Any CPU.Build.0 = DebugCommercial2|Any CPU
 		{9412077F-7DFF-45D0-AFF9-7D5303118EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9412077F-7DFF-45D0-AFF9-7D5303118EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.DebugCommercial|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.DebugCommercial|Any CPU.Build.0 = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.DebugCommercial2|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.DebugCommercial2|Any CPU.Build.0 = Debug|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0614B5E-ADAB-4BE3-934B-894A88CEF68B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
