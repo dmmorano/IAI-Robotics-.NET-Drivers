@@ -33,7 +33,7 @@ Basic functionality includes:
   - BreakRelease
   - SafetySpeed
   
-  Copyright Copyright (C) 2018 Dylan Morano | The GNU General Public License http://www.gnu.org/licenses/
+ Copyright (C) 2018 Dylan Morano | The GNU General Public License http://www.gnu.org/licenses/
   
-  Included in this source code is the EasyModbus library provided by Stefan Roßmann.
-  More information can be found at https://github.com/rossmann-engineering/EasyModbusTCP.NET
+ Included in this source code is the EasyModbus library provided by Stefan Roßmann.
+ More information can be found at https://github.com/rossmann-engineering/EasyModbusTCP.NET
