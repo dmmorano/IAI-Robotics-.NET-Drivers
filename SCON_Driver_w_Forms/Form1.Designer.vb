@@ -422,7 +422,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(214, 526)
+        Me.ClientSize = New System.Drawing.Size(220, 526)
         Me.Controls.Add(Me.tbAccelSpec)
         Me.Controls.Add(Me.tbSpdSpec)
         Me.Controls.Add(Me.lblBrkRlsOn)
@@ -462,7 +462,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.btnSON)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "SCON Controller"
         CType(Me.tbSpdSpec, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbAccelSpec, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

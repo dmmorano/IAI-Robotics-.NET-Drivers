@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SCON_Driver_w_Forms", "SCON_Driver_w_Forms\SCON_Driver_w_Forms.vbproj", "{FAA7B480-D9CB-4D7C-9E57-D51F9C34878F}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SCONRemoteControl", "SCON_Driver_w_Forms\SCONRemoteControl.vbproj", "{FAA7B480-D9CB-4D7C-9E57-D51F9C34878F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7657FC4A-AEDF-4F17-B3E9-0D0DFB1CE23B} = {7657FC4A-AEDF-4F17-B3E9-0D0DFB1CE23B}
 	EndProjectSection

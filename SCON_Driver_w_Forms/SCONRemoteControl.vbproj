@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FAA7B480-D9CB-4D7C-9E57-D51F9C34878F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SCON_Driver_w_Forms.My.MyApplication</StartupObject>
-    <RootNamespace>SCON_Driver_w_Forms</RootNamespace>
-    <AssemblyName>SCON_Driver_w_Forms</AssemblyName>
+    <StartupObject>SCONRemoteControl.My.MyApplication</StartupObject>
+    <RootNamespace>SCONRemoteControl</RootNamespace>
+    <AssemblyName>SCONRemoteControl</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SCON_Driver_w_Forms.xml</DocumentationFile>
+    <DocumentationFile>SCONRemoteControl.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SCON_Driver_w_Forms.xml</DocumentationFile>
+    <DocumentationFile>SCONRemoteControl.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
